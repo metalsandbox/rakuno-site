@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout title="项目 — 楽 raku">
+  <section class="section">
+    <div class="container">
+      <h1 class="section-title">开发项目</h1>
+      <div class="projects-grid">
+        {projects.map(p => (
+          <ProjectCard
+            title={p.data.title}
+            description={p.data.description}
+            tags={p.data.tags}
+            href={p.data.href}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .projects-grid {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  @media (min-width: 520px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

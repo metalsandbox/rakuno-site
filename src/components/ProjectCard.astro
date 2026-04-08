@@ -1,0 +1,67 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  tags?: string[];
+  href?: string;
+}
+
+const { title, description, tags = [], href } = Astro.props;
+---
+
+<a href={href} class="project-card" target="_blank" rel="noopener noreferrer">
+  <h3 class="project-title">{title}</h3>
+  <p class="project-desc">{description}</p>
+  {tags.length > 0 && (
+    <div class="project-tags">
+      {tags.map(tag => <span class="tag">{tag}</span>)}
+    </div>
+  )}
+</a>
+
+<style>
+  .project-card {
+    display: block;
+    padding: var(--space-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-secondary);
+    color: var(--color-text);
+    transition: all var(--transition-fast);
+  }
+
+  .project-card:hover {
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(245, 213, 71, 0.06);
+  }
+
+  .project-title {
+    font-size: 1.1rem;
+    color: var(--color-accent);
+    margin-bottom: var(--space-sm);
+    font-weight: 600;
+  }
+
+  .project-desc {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+    margin-bottom: var(--space-md);
+  }
+
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+  }
+
+  .tag {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-card);
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
+  }
+</style>

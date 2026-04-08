@@ -1,0 +1,71 @@
+---
+const links = [
+  { label: 'Profile', href: '#about', icon: '→' },
+  { label: 'Podcast', href: '#podcast', icon: '🎙' },
+  { label: 'YouTube', href: 'https://youtube.com', icon: '▶' },
+  { label: 'X', href: 'https://x.com', icon: '𝕏' },
+  { label: 'Bilibili', href: 'https://bilibili.com', icon: 'B' },
+  { label: 'GitHub', href: 'https://github.com', icon: '⌘' },
+  { label: 'Telegram', href: 'https://t.me', icon: '✈' },
+];
+---
+
+<section class="links section" id="links">
+  <div class="container">
+    <ul class="links-list">
+      {links.map(link => (
+        <li>
+          <a
+            href={link.href}
+            class="link-item"
+            target={link.href.startsWith('http') ? '_blank' : undefined}
+            rel={link.href.startsWith('http') ? 'noopener noreferrer' : undefined}
+          >
+            <span class="link-icon">{link.icon}</span>
+            <span class="link-label">{link.label}</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .links-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    max-width: 400px;
+    margin: 0 auto;
+  }
+
+  .link-item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    width: 100%;
+    padding: var(--space-md) var(--space-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    background: var(--color-bg-secondary);
+    transition: all var(--transition-fast);
+    font-size: 0.95rem;
+    letter-spacing: 0.04em;
+  }
+
+  .link-item:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 20px rgba(245, 213, 71, 0.08);
+  }
+
+  .link-icon {
+    width: 24px;
+    text-align: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+  }
+</style>

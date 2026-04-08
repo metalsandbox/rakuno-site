@@ -1,0 +1,23 @@
+---
+const year = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <p class="footer-text">&copy; {year} 楽 raku &middot; rakuno.link</p>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-lg) 0;
+    text-align: center;
+  }
+
+  .footer-text {
+    font-size: 0.8rem;
+    color: var(--color-text-muted);
+    letter-spacing: 0.04em;
+  }
+</style>

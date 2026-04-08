@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import ArtGallery from '../components/ArtGallery.astro';
+import PodcastSection from '../components/PodcastSection.astro';
+import LinksGrid from '../components/LinksGrid.astro';
+import SupportSection from '../components/SupportSection.astro';
+
+const projects = (await getCollection('projects')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<BaseLayout>
+  <Hero />
+  <LinksGrid />
+  <About />
+
+  <section class="projects section" id="projects">
+    <div class="container">
+      <h2 class="section-title">开发项目</h2>
+      <div class="projects-grid">
+        {projects.map(p => (
+          <ProjectCard
+            title={p.data.title}
+            description={p.data.description}
+            tags={p.data.tags}
+            href={p.data.href}
+          />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <ArtGallery />
+  <PodcastSection />
+  <SupportSection />
+</BaseLayout>
+
+<style>
+  .projects-grid {
+    display: grid;
+    gap: var(--space-md);
+  }
+
+  @media (min-width: 520px) {
+    .projects-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>

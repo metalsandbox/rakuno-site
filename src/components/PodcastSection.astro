@@ -1,0 +1,52 @@
+---
+---
+
+<section class="podcast section" id="podcast">
+  <div class="container">
+    <h2 class="section-title">播客</h2>
+    <div class="podcast-content">
+      <p class="podcast-desc">分享关于技术、创作和生活的对话。</p>
+      <div class="podcast-links">
+        <a href="#" class="podcast-link">Apple Podcasts</a>
+        <a href="#" class="podcast-link">Spotify</a>
+        <a href="#" class="podcast-link">小宇宙</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .podcast-content {
+    padding: var(--space-lg);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    background: var(--color-bg-secondary);
+  }
+
+  .podcast-desc {
+    font-size: 0.95rem;
+    color: var(--color-text);
+    margin-bottom: var(--space-lg);
+    line-height: 1.6;
+  }
+
+  .podcast-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-sm);
+  }
+
+  .podcast-link {
+    font-size: 0.85rem;
+    padding: var(--space-sm) var(--space-md);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    color: var(--color-text-muted);
+    transition: all var(--transition-fast);
+  }
+
+  .podcast-link:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+  }
+</style>
