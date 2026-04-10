@@ -1,15 +1,15 @@
 /* ===== Theme Variables ===== */
 :root {
   /* Colors - from design sketch: blue background, yellow text */
-  --color-bg: #0a0e27;
-  --color-bg-secondary: #111640;
-  --color-bg-card: #161b4a;
-  --color-accent: #f5d547;
-  --color-accent-hover: #ffe066;
+  --color-bg: #0a1527;
+  --color-bg-secondary: #111d3d;
+  --color-bg-card: #162748;
+  --color-accent: #F8D849;
+  --color-accent-hover: #FFE566;
   --color-text: #e8e6e3;
   --color-text-muted: #8a8a9a;
-  --color-border: #2a2f5a;
-  --color-link: #f5d547;
+  --color-border: #253a5e;
+  --color-link: #F8D849;
 
   /* Typography */
   --font-body: 'Inter', 'Noto Sans SC', system-ui, -apple-system, sans-serif;
